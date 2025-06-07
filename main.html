@@ -1,32 +1,42 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>	
-	<script>
-		function secondHighest(arr) {
-			//Write your code here
-			
-		}
+  <script>
+    function secondHighest(arr) {
+    
+      arr = arr.map(Number);
 
-		function Main() {
-			var n = prompt("Enter the number of elements");
-			var arr = [];
-			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
-			}
-			alert(secondHighest(arr));
-		}
-		Main();
-	</script>
+     
+      const uniqueArr = [...new Set(arr)];
 
-    <script type="text/javascript" src="./script.js">
-</script>
 
+      uniqueArr.sort((a, b) => b - a);
+
+
+      if (uniqueArr.length < 2) {
+        return "Second highest not available.";
+      }
+
+      
+      return uniqueArr[1];
+    }
+
+    function Main() {
+      var n = prompt("Enter the number of elements");
+      var arr = [];
+      for (var i = 0; i < n; i++) {
+        arr[i] = prompt("Enter element " + (i+1));
+      }
+      alert("Second highest number is: " + secondHighest(arr));
+    }
+
+    Main();
+  </script>
+
+  <!-- You can remove this if you're not using external script -->
+  <script type="text/javascript" src="./script.js"></script>
 </body>
-
 </html>
